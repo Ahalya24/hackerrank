@@ -1,0 +1,17 @@
+#!/bin/python
+
+import sys
+
+# get input 
+s = raw_input().strip()
+
+#initialize counter
+a=1
+
+#loop and find number of upper case
+for letter in s:
+    if letter.isupper():
+        a+=1
+        
+#print count 
+print (a)
