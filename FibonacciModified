@@ -1,0 +1,9 @@
+inp=raw_input()
+t1,t2,tn=inp.split(' ')
+n = int(tn)
+fib = [int(t1),int(t2)]
+
+for i in range(0,n):
+    fib.append(fib[i]+(fib[i+1]*fib[i+1]))
+    
+print (fib[n-1])
