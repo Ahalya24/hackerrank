@@ -1,0 +1,25 @@
+SELECT 
+COALESCE (d.d_name,'NULL') AS "Doctor", 
+COALESCE (p.p_name, 'NULL') AS "Professor",
+COALESCE (s.s_name,'NULL') AS "Singer",
+COALESCE (a.a_name,'NULL') AS "Actor"
+FROM 
+(SELECT RANK () OVER (ORDER BY Name) AS 'p_rank',
+Name AS 'p_name'
+FROM OCCUPATIONS 
+WHERE Occupation = 'Professor') p
+FULL OUTER JOIN (SELECT RANK () OVER (ORDER BY Name) AS 's_rank',
+Name AS 's_name'
+FROM OCCUPATIONS 
+WHERE Occupation = 'Singer') s
+ON p.p_rank=s.s_rank
+FULL OUTER JOIN (SELECT RANK () OVER (ORDER BY Name) AS 'a_rank',
+Name AS 'a_name'
+FROM OCCUPATIONS 
+WHERE Occupation = 'Actor') a
+ON p.p_rank=a.a_rank
+FULL OUTER JOIN (SELECT RANK () OVER (ORDER BY Name) AS 'd_rank',
+Name AS 'd_name'
+FROM OCCUPATIONS 
+WHERE Occupation = 'Doctor') d
+ON p.p_rank=d.d_rank;
