@@ -1,0 +1,9 @@
+SELECT Name||occ
+FROM (SELECT Name, '(' || SUBSTR(Occupation,1,1) || ')' AS occ FROM OCCUPATIONS ORDER BY Name);
+
+
+SELECT 'There are total ' || cnt  || ' ' || occ || 's.'
+FROM(SELECT COUNT(Occupation) AS cnt,
+LOWER (Occupation) AS occ
+FROM Occupations GROUP BY Occupation)
+ORDER BY cnt,occ;
