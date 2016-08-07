@@ -1,0 +1,15 @@
+select p2.Start_Date, (
+    select min(End_Date)
+    from Projects p1
+    where p1.End_Date not in (
+        select Start_Date
+        from Projects
+    )
+    and p1.End_Date > p2.Start_Date
+) as p_End
+from Projects p2
+where p2.Start_Date not in (
+    select End_Date
+    from Projects
+)
+order by p_End - p2.Start_Date, p2.Start_Date;
