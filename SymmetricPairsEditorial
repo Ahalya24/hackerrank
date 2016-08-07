@@ -1,0 +1,7 @@
+select distinct X, Y
+from Functions f1
+where
+(X = Y and (select count(f2.X) from Functions f2 where f1.X = f2.Y and f1.Y = f2.X) > 1)
+OR
+(X < Y and (select count(f2.X) from Functions f2 where f1.X = f2.Y and f1.Y = f2.X) > 0)
+order by X, Y;
