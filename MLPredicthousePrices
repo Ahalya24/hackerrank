@@ -10,7 +10,8 @@ for i in range(len(factors)):
     target.append(factors[i].pop())
 clf = linear_model.LinearRegression()
 clf.fit(factors,target)
+
 for i in range(int(raw_input())):
     test=[list(map(float,raw_input().split())) ]
-for e in clf.predict(test): 
-    print(e)
+    for e in clf.predict(test): 
+        print(e)
