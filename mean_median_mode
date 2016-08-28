@@ -1,0 +1,18 @@
+import statistics as st
+N=int(input())
+nums=input().split()
+#find mean
+mean_sum=0
+for numb in nums : 
+    mean_sum+=int(numb)
+print (mean_sum/float(N))
+#find median
+nums1 = map(int,nums)
+print (st.median(nums1))
+#find mode
+from collections import Counter
+cnt=Counter(nums)
+max_count = max(cnt.values())
+mode_nos = [k for k,v in cnt.items() if v == max_count]
+mode = min(int(s) for s in mode_nos)
+print (mode)
