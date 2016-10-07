@@ -1,0 +1,17 @@
+import sys
+X = list(map(lambda a: int(a),sys.stdin.readline().split()[2:]))
+Y = list(map(lambda b: int(b),sys.stdin.readline().split()[2:]))
+N=len(X)
+X_sum=sum(X)
+Y_sum=sum(Y)
+XY_sum=0
+X2_sum=0
+Y2_sum=0
+for i in range(N):
+    XY_sum+=(X[i]*Y[i])
+    X2_sum+=(X[i]*X[i])
+    Y2_sum+=(Y[i]*Y[i])
+r_nume=(N*XY_sum)-(X_sum*Y_sum)
+r_deno=((((N*X2_sum)-(X_sum)**2)*((N*Y2_sum)-(Y_sum)**2))**0.5)
+r=r_nume/r_deno
+print (r)
