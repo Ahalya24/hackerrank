@@ -1,0 +1,24 @@
+#!/bin/python
+
+import sys
+
+notes=[1,2,5,10,20,50,100]
+ways=[]
+N=int(raw_input())
+
+def find_count(i,n):
+    ans=0;
+    if (n<0):
+        return 0
+    if (n==0):
+        return 1
+    if (i==7):
+        return 0    
+    ans+=find_count(i,n-notes[i])+find_count(i+1,n)
+    return ans
+        
+    
+    
+print (find_count(0,N))
+
+        
