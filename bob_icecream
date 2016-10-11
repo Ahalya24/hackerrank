@@ -1,0 +1,16 @@
+t=int(input())
+
+def choose_flav(money,cost_list):
+    for i in range(0,len(cost_list)):
+        for j in range(i+1,len(cost_list)):
+            if cost_list[i]+cost_list[j]==money:
+                print (i+1,j+1)
+        
+        
+    
+for i in range(t):
+    m=int(input())
+    n=int(input())
+    c=input().split()
+    c=[int(x) for x in c]
+    choose_flav(m,c)
