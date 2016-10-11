@@ -5,6 +5,7 @@ def choose_flav(money,cost_list):
         for j in range(i+1,len(cost_list)):
             if cost_list[i]+cost_list[j]==money:
                 print (i+1,j+1)
+                break
         
         
     
