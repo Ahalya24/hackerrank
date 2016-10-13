@@ -1,0 +1,32 @@
+def insertionSort(alist,N):
+   k=0
+   for i in range(N-1,-1,-1):
+       if alist[i]<alist[i-1] and (i!=0):
+           if k<alist[i-1]:
+               k=alist[i]
+               alist[i]=alist[i-1]
+       if alist[i]>alist[i-1]:
+           alist[i]=alist[i-1]
+       if i==0 and k!=0:
+           alist[0]=k
+           k=0
+           str_alist=[str(i) for i in alist]
+           print (' '.join(str_alist))
+           break
+       if k>alist[i-1]: 
+           alist[i]=k
+           k=0
+           str_alist=[str(i) for i in alist]
+           print (' '.join(str_alist))
+           break
+       str_alist=[str(i) for i in alist]
+       print (' '.join(str_alist))
+
+N=int(input())
+arr=input().split()
+int_arr=[int (i) for i in arr]
+l=len(int_arr)
+
+insertionSort(int_arr,l)
+        
+        
