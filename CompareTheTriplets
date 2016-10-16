@@ -1,0 +1,12 @@
+#!/bin/python3
+
+alice=list(map(int,input().split()))
+bob=list(map(int,input().split()))
+alice_point=0
+bob_point=0
+for i in range(0,len(alice)):
+    if alice[i]>bob[i]:
+        alice_point+=1
+    if bob[i]>alice[i]:
+        bob_point+=1
+print (alice_point,bob_point)
