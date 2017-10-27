@@ -1,0 +1,4 @@
+import nltk 
+s="This is the sring to be pos tagged"
+text=nltk.word_tokenize(s)
+print (nltk.pos_tag(text))
