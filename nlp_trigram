@@ -1,0 +1,31 @@
+#!/bin/python3
+
+import sys
+import collections
+import string
+
+
+s = sys.stdin.read()
+s=s.lower()
+sent=s.split('.')
+
+
+trig=[]
+for se in sent:
+    se=se.translate(string.punctuation)
+    wrds=se.split()
+    for i in range(len(wrds)-2):
+        trig.append((wrds[i]).strip()+" "+(wrds[i+1]).strip()+" "+(wrds[i+2]).strip())
+
+max=max([c for i,c in collections.Counter(trig).most_common()])
+m_occr=[i for i,c in collections.Counter(trig).most_common() if c==max]
+
+i=[]
+for o in m_occr:
+    i.append(s.index(o))
+    
+m=min(i)
+
+for o in m_occr:
+    if s.index(o)==m:
+        print (o)
