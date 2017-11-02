@@ -1,0 +1,17 @@
+#1.I'd like an apple.
+#2.An apple a day keeps the doctor away.
+#3.Never compare an apple to an orange.
+#4.I prefer scikit-learn to orange.
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+doc=[]
+for i in range(4):
+    doc.append(input())
+
+tf_idf = TfidfVectorizer().fit_transform(doc)
+cosine(tf_idf[0].todense(),tf_idf[1].todense())
+>>0.74917141385736974
+cosine(tf_idf[0].todense(),tf_idf[2].todense())
+>>0.60517036640622623
+cosine(tf_idf[0].todense(),tf_idf[3].todense())
+>>1.0
